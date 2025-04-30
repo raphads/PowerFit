@@ -1,0 +1,34 @@
+links Projeto interdisciplinar
+https://www.youtube.com/watch?v=0TnO1GzKWPc animaçao scroll css
+https://github.com/SnippetsDevelop/snippetsdevelop.github.io/blob/master/codes/Animate%20of%20scroll.html https://www.w3schools.com/howto/howto_js_slideshow.asp
+https://www.youtube.com/watch?v=_EwoW-IV2ao https://www.youtube.com/watch?v=_EwoW-IV2ao mascara jQuery
+https://www.w3schools.com/howto/howto_css_image_gallery_scroll.asp scroll com imagens
+https://www.youtube.com/watch?v=1TZjgQ0Osic sidebar
+https://www.patreon.com/posts/source-code-side-59504360?utm_medium=clipboard_copy&utm_source=copy_to_clipboard&utm_campaign=postshare
+https://www.w3schools.com/csS/css_align.asp centralizar
+https://pt.stackoverflow.com/questions/2817/qual-a-melhor-forma-de-centralizar-um-elemento-vertical-e-horizontalmente
+https://www.geeksforgeeks.org/how-to-turn-an-image-into-a-link-in-html/ imagem clicavel
+https://www.w3schools.com/html/html_images.asp
+https://www.geeksforgeeks.org/html-frameset-tag/
+https://www.youtube.com/watch?v=PL3Odw-k8W4  
+https://www.youtube.com/shorts/BSn76JUymhE
+https://www.youtube.com/watch?v=_EwoW-IV2ao
+https://www.youtube.com/watch?v=0TnO1GzKWPc
+https://www.youtube.com/watch?v=1TZjgQ0Osic 
+https://pt.stackoverflow.com/questions/2817/qual-a-melhor-forma-de-centralizar-um-elemento-vertical-e-horizontalmente 
+https://www.w3schools.com/csS/css_align.asp
+https://www.geeksforgeeks.org/html-tags-a-to-z-list/?utm_source=geeksforgeeks&utm_medium=gfgcontent_shm&utm_campaign=shm 
+https://www.geeksforgeeks.org/html-frameset-tag/ 
+https://www.geeksforgeeks.org/html-iframes/ 
+https://www.geeksforgeeks.org/how-to-link-a-button-to-another-page-in-html/ https://www.w3schools.com/tags/tag_iframe.asp 
+https://www.w3schools.com/tags/default.asp
+https://developer.mozilla.org/pt-BR/docs/Web/CSS/position 
+https://www.w3schools.com/Css/css_positioning.asp
+ https://www.w3schools.com/js/js_popup.asp 
+https://www.devmedia.com.br/operacoes-simples-com-popups-em-javascript/37223 https://www.w3schools.com/Css/css_positioning.asp  
+https://www.w3schools.com/howto/howto_js_popup.asp 
+https://stackoverflow.com/questions/50191630/how-to-use-js-to-update-text-based-on-selected-option-value
+https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+https://www.youtube.com/watch?v=kXPr_HvBPqM  mudar baseado no selections
+https://www.w3schools.com/jsref/event_onchange.asp
+https://stackoverflow.com/questions/50191630/how-to-use-js-to-update-text-based-on-selected-option-value

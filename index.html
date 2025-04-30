@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit">
+    <title>PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
+    <link rel="stylesheet" href="site_academia.css">
+    <script src="site_academia.js"></script>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">
+			$(function(){
+                $("#fontemais").on("click", function(){
+					$("body").css({
+						"font-size": "+=4px"
+					});
+				});
+
+				$("#fontemenos").on("click", function(){
+					$("body").css({
+						"font-size": "-=4px"
+					});
+				});
+            });
+    </script>
+
+</head>
+
+    <body link="white" alink="purple" vlink="white">
+        <header>
+            <div class="menu-icon" onclick="toggleMenu()"  style="visibility: hidden;">&#9776;</div>
+            <img src="images/logo_semnome.png" height="10%" width="10%" style="position: static; right: auto;">
+            <p class="link" text="white" ><a href="login.html">Login</a></p>
+            <h1>PowerFit</h1>
+        </header>
+        <hr>
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="agendamento.html">Agendamento</a></li>
+                <li><a href="equipamentos.html">Equipamentos</a></li>
+                <li><a href="planos.html">Planos</a></li>
+                <li><a href="pagamentos.html">Pagamentos</a></li>
+                <li><a href="aulas.html">Aulas</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+            </ul>
+        </nav>
+    <section class="hero">
+        <h2>Bem-vindo à Academia PowerFit</h2>
+        <p>Gerencie seus treinos, pagamentos e evolução física em um só lugar.</p>
+    </section>
+
+
+
+<div class="scroll-container">
+    <img src="images/img1.jpg" height="25%" width="25%">
+    <img src="images/img2.jpg" height="25%" width="25%">
+    <img src="images/img3.jpg" height="25%" width="25%"> 
+    <img src="images/img4.jpg" height="25%" width="25%"> 
+    <img src="images/img5.jpg" height="25%" width="25%"> 
+    <img src="images/img6.jpg" height="25%" width="25%"> 
+    <img src="images/img7.jpg" height="25%" width="25%"> 
+    <img src="images/img8.jpg" height="25%" width="25%"> 
+    <img src="images/img9.jpg" height="25%" width="25%"> 
+    <img src="images/img10.jpg" height="25%" width="25%"> 
+</div>
+    <footer>
+        <p>  <a href="https://facebook.com/"><img class="facebook" backgorund="white" src="images/facebook.png" alt="" height="20px" width="20px"></a>&nbsp;  &nbsp;  <a href="https://instagram.com/"> <img class="facebook" src="images/instagram - Copia.png" alt="" height="20px" width="20px"></a>  &nbsp;  &nbsp;    <a href="https://twitter.com/"><img class="facebook" src="images/twitter.png" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://tiktok.com/"><img class="facebook" src="images/tik-tok.png" alt="" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://youtube.com/"><img class="facebook" src="images/youtube.png" alt="" height="20px" width="20px"></a> </p>
+        <p>Telefone: (99) 99999-9999</p>
+        <p><a href="sobrenos.html">Sobre nós</a></p>
+    <div id="tamanho">
+        <input type="button" name="fontemais" id="fontemais" class="fontemais" value="A+"> &nbsp;
+        <input type="button" name="fontemenos" id="fontemenos" class="fontemenos" value="A-">
+    </div>
+    <div id="apli">
+        <p>Baixe nosso aplicativo</p>
+        <p><a href="https://play.google.com/"><img class="facebook" src="images/googlePlay.png"</a></p> <p><a href="https://www.apple.com/br/app-store/"><img class="facebook" src="images/appStore.png"</a></p>
+    </div>
+    </footer>
+</body>
+</html>
+ 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
+    <link rel="stylesheet" href="site_academia.css">
+    <script src="site_academia.js" defer></script>
+  
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <img src="images/logo_semnome.png" height="10%" width="10%" style="position: static; right: auto;">
+        <h1>PowerFit</h1>
+    </header>
+    <hr>
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="agendamento.html">Agendamento</a></li>
+            <li><a href="equipamentos.html">Equipamentos</a></li>
+            <li><a href="planos.html">Planos</a></li>
+            <li><a href="pagamentos.html">Pagamentos</a></li>
+            <li><a href="aulas.html">Aulas</a></li>
+            <li><a href="relatorios.html">Relatórios</a></li>
+        </ul>
+    </nav>
+    <section class="content" name="content">
+        <h2>Cadastro de Aulas</h2>
+        
+            
+            <label for="modalidade">Modalidade:</label>
+            <select id="modalidade">
+                <option value="modalidade1">Yoga</option>
+                <option value="modalidade2">Spinning</option>
+                <option value="modalidade3">Musculação</option>
+                <option value="modalidade4">Pilates</option>
+                </select>
+            <br><label for="instrutor">Instrutor:</label>
+            <select id="instrutor" name="instrutor">
+                <option value="instr1">João</option>
+                <option value="instr2">Humberto</option>
+                <option value="instr3">Rennan</option>
+            </select>
+            <br>
+            <label for="data_aula">Data:</label>
+            <input type="date" id="data_aula" required>
+            <br>
+            <label for="horario">Horário:</label>
+            <input type="time" id="horario" name="horario" required>
+            <br>
+            <label for="tempo">Duração:</label>
+            <select id="tempo">
+                <option value="hora1">1 Hora</option>
+                <option value="hora2">2 Horas</option>
+                <option value="hora3">3 Horas</option>
+            </select>
+            <br>
+            <button type="submit" onclick="Redirecionar()">Cadastrar</button>
+        </form>
+    </section>
+
+    
+    <footer>
+        <p>  <a href="https://facebook.com/"><img class="facebook" src="images/facebook.png" alt="" height="20px" width="20px"></a>&nbsp;  &nbsp;  <a href="https://instagram.com/"> <img class="facebook" src="images/instagram - Copia.png" alt="" height="20px" width="20px"></a>  &nbsp;  &nbsp;    <a href="https://twitter.com/"><img class="facebook" src="images/twitter.png" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://tiktok.com/"><img class="facebook" src="images/tik-tok.png" alt="" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://youtube.com/"><img class="facebook" src="images/youtube.png" alt="" height="20px" width="20px"></a> </p>
+        <p>Telefone: (99) 99999-9999</p>
+    </footer>
+    </body>
+
+    </html>

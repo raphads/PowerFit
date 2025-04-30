@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit">
+    <title>PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
+    <link rel="stylesheet" href="site_academia.css">
+    <script src="site_academia.js"></script>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <img src="images/logo_semnome.png" height="10%" width="10%" style="position: static; right: auto;">
+        <h1>PowerFit</h1>
+        <!--    <iframe src="teste.html" height="100%" width="100%" style="border: none; " scrolling="no"></iframe>-->
+   
+    </header>
+
+
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="agendamento.html">Agendamento</a></li>
+            <li><a href="equipamentos.html">Equipamentos</a></li>
+            <li><a href="planos.html">Planos</a></li>
+            <li><a href="pagamentos.html">Pagamentos</a></li>
+            <li><a href="aulas.html">Aulas</a></li>
+            <li><a href="relatorios.html">Relatórios</a></li>
+        </ul>
+    </nav>
+    <form>
+        <section class="content" name="content">
+            <h2>Cadastro de Equipamentos</h2>
+            <form id="equipForm">
+                <label for="codigo">Código:</label>
+                <input type="number" id="codigo" required placeholder="1111" value="1111"><br>
+                <label for="tipo">Tipo:</label>
+                <input type="text" id="tipo" required><br>
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" required><br>
+                <label for="data_compra">Data de Compra:</label>
+                <input type="date" id="data_compra" required><br>
+                <label for="data_manut">Data de Manutenção:</label>
+                <input type="date" id="data_manut" required><br>
+                <label for="modalidade">Status:</label>
+                <select id="modalidade">
+                    <option value="status1">Disponível</option>
+                    <option value="status2">Em Manutenção</option>
+                    <option value="status3">Substituído</option>
+                    </select> <br>
+                
+                <button type="submit" onclick="Redirecionar()">Cadastrar</button>
+    </form>
+</section>
+<footer>
+    <p>  <a href="https://facebook.com/"><img class="facebook" backgorund="white" src="images/facebook.png" alt="" height="20px" width="20px"></a>&nbsp;  &nbsp;  <a href="https://instagram.com/"> <img class="facebook" src="images/instagram - Copia.png" alt="" height="20px" width="20px"></a>  &nbsp;  &nbsp;    <a href="https://twitter.com/"><img class="facebook" src="images/twitter.png" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://tiktok.com/"><img class="facebook" src="images/tik-tok.png" alt="" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://youtube.com/"><img class="facebook" src="images/youtube.png" alt="" height="20px" width="20px"></a> </p>
+    <p>Telefone: (99) 99999-9999</p>
+
+</footer>
+</body>
+
+</html>

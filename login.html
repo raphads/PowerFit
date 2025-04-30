@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit">
+    <title>PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
+    <link rel="stylesheet" href="site_academia.css">
+    <script src="site_academia.js"></script>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">
+			$(function(){
+                $("#fontemais").on("click", function(){
+					$("body").css({
+						"font-size": "+=4px"
+					});
+				});
+
+				$("#fontemenos").on("click", function(){
+					$("body").css({
+						"font-size": "-=4px"
+					});
+				});
+            });
+        var num = 3;
+        function Validar(){
+            var user = (document.frm_cadastro.txt_email.value);
+            var pass = (document.frm_cadastro.txt_senha.value);
+            
+        if(num>0){
+            if ((user == "admin" || user == "admin@powerfit.com") && pass=="admin"){
+                alert("Login realizado com sucesso!");
+                window.location="agendamento.html";
+            
+            }else{
+                
+                alert("Usuário ou senha inválidos! Você tem mais " + num + " tentativa(s).");
+            }
+            num--;
+        }else{
+            alert("Acesso negado! Entre em contato com o administrador.")
+        }    
+        document.frm_cadastro.txt_email.value=""
+        document.frm_cadastro.txt_senha.value=""
+        document.frm_cadastro.txt_email.focus();
+        }
+        </script>
+</head>
+    <body>
+        <header>
+            <div class="menu-icon" onclick="toggleMenu()"></div>
+            <img src="images/logo_semnome.png" height="10%" width="10%" style="position: static; right: auto;">
+            <h1>PowerFit</h1>
+        </header>
+        <hr>
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="agendamento.html">Agendamento</a></li>
+                <li><a href="frequencia.html">Frequência</a></li>
+                <li><a href="planos.html">Planos</a></li>
+                <li><a href="pagamentos.html">Pagamentos</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+</header>
+
+    <section class="content" name="content">
+        <h2>Login</h2>
+        <form id="userForm" name="frm_cadastro">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="txt_email" required placeholder="powerfit@powerfit.com">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="txt_senha" required placeholder="*******">
+
+            <button type="submit" value="ENVIAR" onClick="Validar()">Entrar</button>
+            <button type="reset" value="LIMPAR">Limpar</button>
+</form>
+</section>
+
+
+<footer>
+    <p>  <a href="https://facebook.com/"><img class="facebook" src="images/facebook.png" alt="" height="20px" width="20px"></a>&nbsp;  &nbsp;  <a href="https://instagram.com/"> <img class="facebook" src="images/instagram - Copia.png" alt="" height="20px" width="20px"></a>  &nbsp;  &nbsp;    <a href="https://twitter.com/"><img class="facebook" src="images/twitter.png" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://tiktok.com/"><img class="facebook" src="images/tik-tok.png" alt="" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://youtube.com/"><img class="facebook" src="images/youtube.png" alt="" height="20px" width="20px"></a> </p>
+    <p>Telefone: (99) 99999-9999</p>
+<div id="tamanho">
+    <input type="button" name="fontemais" id="fontemais" class="fontemais" value="A+"> &nbsp;
+    <input type="button" name="fontemenos" id="fontemenos" class="fontemenos" value="A-">
+</div>
+</footer>
+
+</body>
+</html>

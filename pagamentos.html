@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
+    <link rel="stylesheet" href="site_academia.css">
+    <script src="site_academia.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+  
+    <script>
+        alert("Usuário Cadastrado com Sucesso!");
+        function updateTexto(){
+           /* var texto = select.options[select.selectedIndex].value;
+            if (texto == "boleto"){
+                document.getElementById('pgto').innterHTML.value = "Baixar Boleto";
+            }*/
+           var texto = document.getElementById("meio-pagamento");
+           if (texto.value == "boleto"){
+            document.getElementById("pgto").innerText = "Baixar Boleto";
+            document.getElementById("cc").style.visibility = "hidden";
+            document.getElementById("nomec").style.visibility = "hidden";
+            document.getElementById("dataval").style.visibility = "hidden";
+            document.getElementById("cod").style.visibility = "hidden";
+            document.getElementById("lcc").style.visibility = "hidden";
+            document.getElementById("lnomec").style.visibility = "hidden";
+            document.getElementById("lval").style.visibility = "hidden";
+            document.getElementById("codl").style.visibility = "hidden";
+           }else if(texto.value == "pix"){
+            document.getElementById("pgto").innerText = "Gerar QR Code";
+            document.getElementById("cc").style.visibility = "hidden";
+            document.getElementById("nomec").style.visibility = "hidden";
+            document.getElementById("dataval").style.visibility = "hidden";
+            document.getElementById("cod").style.visibility = "hidden";
+            document.getElementById("lcc").style.visibility = "hidden";
+            document.getElementById("lnomec").style.visibility = "hidden";
+            document.getElementById("lval").style.visibility = "hidden";
+            document.getElementById("codl").style.visibility = "hidden";
+           }else{
+            document.getElementById("pgto").innerText = "Efetuar Pagamento";
+            document.getElementById("cc").style.visibility = "visible";
+            document.getElementById("nomec").style.visibility = "visible";
+            document.getElementById("dataval").style.visibility = "visible";
+            document.getElementById("cod").style.visibility = "visible";
+            document.getElementById("lcc").style.visibility = "visible";
+            document.getElementById("lnomec").style.visibility = "visible";
+            document.getElementById("lval").style.visibility = "visible";
+            document.getElementById("codl").style.visibility = "visible";
+           }
+        }
+        function clicar(){
+            alert("Pagamento Realizado com Sucesso!");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <img src="images/logo_semnome.png" height="10%" width="10%" style="position: static; right: auto;">
+        <h1>PowerFit</h1>
+    </header>
+    <hr>
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="agendamento.html">Agendamento</a></li>
+            <li><a href="equipamentos.html">Equipamentos</a></li>
+            <li><a href="planos.html">Planos</a></li>
+            <li><a href="pagamentos.html">Pagamentos</a></li>
+            <li><a href="aulas.html">Aulas</a></li>
+            <li><a href="relatorios.html">Relatórios</a></li>
+        </ul>
+    </nav>
+   <section class="content">
+        <form>
+        <h2>Realizar Pagamento</h2>
+        
+            <label for="valor">Valor:</label>
+            <input type="text" id="valor" name="valor" value="R$ 99,99" readonly>
+ 
+            <label for="data-vencimento">Data de Vencimento:</label>
+            <input type="date" id="data-vencimento" name="data-vencimento" value="2025-05-01" readonly>
+            
+            <label for="meio-pagamento">Forma de Pagamento:</label>
+            <select id="meio-pagamento" name="meio-pagamento" onchange="updateTexto()">
+                <option value="cartao">Cartão de Crédito</option>
+                <option value="cartaodeb">Cartão de Débito</option>
+                <option value="boleto">Boleto Bancário</option>
+                <option value="pix">Pix</option>
+            </select>
+
+            <label for="cc" id="lcc">Número do Cartão:</label>
+            <input type="text" id="cc" name="cc" required placeholder="0000 0000 0000 0000">
+            <label for="nomec" id="lnomec">Nome no Cartão:</label>
+            <input type="text" id="nomec" name="nomec" required>
+            <label for="dataval" id="lval">Validade:</label>
+            <input type="text" id="dataval" name="dataval" required placeholder="01/25">
+            <label for="cod" id="codl">Código de Segurança:</label>
+            <input type="password" id="cod" name="cod" required placeholder="***">
+            
+            <button type="submit" id="pgto" onclick="clicar()">Efetuar Pagamento</button>
+        </form>
+    </section>  
+    <footer>
+        <p>  <a href="https://facebook.com/"><img class="facebook" src="images/facebook.png" alt="" height="20px" width="20px"></a>&nbsp;  &nbsp;  <a href="https://instagram.com/"> <img class="facebook" src="images/instagram - Copia.png" alt="" height="20px" width="20px"></a>  &nbsp;  &nbsp;    <a href="https://twitter.com/"><img class="facebook" src="images/twitter.png" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://tiktok.com/"><img class="facebook" src="images/tik-tok.png" alt="" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://youtube.com/"><img class="facebook" src="images/youtube.png" alt="" height="20px" width="20px"></a> </p>
+        <p>Telefone: (99) 99999-9999</p>
+    </footer>
+</body>
+</html>
+ 

@@ -1,0 +1,369 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+ 
+
+ 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+   /* background-image: url('images/gym.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    backdrop-filter: blur(10px);*/
+}
+
+body img:hover{
+  transform: scale(1.5,1.5);
+  align-self: center;
+}
+
+.logo{
+  align-self: center;
+}
+header {
+    background-color: #1e3a8a;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+}
+ 
+header h1 {
+    font-size: 2rem;
+}
+ 
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.sidebar {
+    position: absolute;
+    left: 0;
+    top: 100px;
+    width: 250px;
+    height: 100%;
+    background-color: #1e3a8a;
+    color: 1e3a8a;
+    padding-top: 30px;
+    display: none;
+    transition: transform 0.3s ease-in-out;
+}
+ 
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #1e3a8a;
+}
+ 
+.sidebar li {
+    padding: 15px 0;
+    text-align: center;
+    background-color: #1e3a8a;
+}
+ 
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 1.2rem;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+ 
+.sidebar a:hover {
+    background-color: #13275d;
+}
+ 
+.sidebar.active {
+    display: block;
+    background-color: #1e3a8a;
+}
+ 
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px #1e3a8a;
+    min-height: calc(100vh - 120px);
+    flex-grow: 1;
+}
+ 
+form {
+    display: flex;
+    flex-direction: column;
+}
+ 
+label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+ 
+input, select, button {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+ 
+input[type="date"], input[type="time"] {
+    font-size: 1rem;
+}
+ 
+button {
+    background-color: #1e3a8a;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+ 
+button:hover {
+    background-color: #0d2a6e;
+}
+ 
+
+.foto-perfil {
+    text-align: center;
+    margin-bottom: 20px;
+}
+ 
+.foto-perfil img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+ 
+.foto-perfil input[type="file"] {
+    display: none;
+}
+ 
+.foto-perfil label {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+ 
+.foto-perfil label:hover {
+    background-color: #0d2a6e;
+}
+ 
+
+footer {
+    background-color: #111;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; 
+}
+ 
+footer p {
+    margin: 5px 0;
+}
+ 
+/* Responsividade */
+@media (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+ 
+    .sidebar {
+        width: 200px;
+    }
+ 
+    .menu-icon {
+        display: block;
+    }
+}
+ 
+@media (max-width: 500px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+ 
+    header h1 {
+        font-size: 1.5rem;
+    }
+ 
+    .menu-icon {
+        margin-top: 10px;
+    }
+}
+ 
+/**/
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+div.scroll-container {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+  }
+  
+  div.scroll-container img {
+    padding: 10px;
+  }
+ 
+  .fontemais{
+    background-color: #000;
+    color: #FFF;
+    text-align: center;
+    text-justify: auto;
+    padding: 10px;
+    position: fixed;
+    right: 30px;
+    bottom: 10px;
+    padding-right: 0%;
+  }
+
+  .fontemenos{
+    background-color: #000;
+    color: #FFF;
+    text-align: justify;
+    text-justify: auto;
+    padding: 10px;
+    position: fixed;
+    right: 70px;
+    bottom: 10px;
+    padding-right: 0%;
+  }
+
+  .link{
+   right: 30px;
+   text-align: justify;
+   text-justify: auto;
+   padding: 10px;
+   position: absolute;
+   top: 50px;
+  }
+
+
+  .facebook{
+    background-color: white;
+  }
+
+  #apli img{
+    background-color: white;
+    left: 10;
+    align-items: start;
+    x: 1;
+  }
+
+  .content{
+   margin: auto;
+   width: 50%;
+   padding: 10px;
+  }
+
+  iframe{
+    scroll-behavior: unset;
+    overflow:unset;
+    
+  }
+
+ 
