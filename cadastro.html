@@ -11,6 +11,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
     <script>
+        function updateTexto(){
+            var texto1 = document.getElementById("funcao");
+            if((texto1.value == "instrutor") || (texto1.value == "administrador")){
+                document.getElementById("plano").style.visibility = "hidden";
+                document.getElementById("planol").style.visibility = "hidden";
+                document.getElementById("tempo").style.visibility = "hidden";
+                document.getElementById("tempol").style.visibility = "hidden";
+            }else{
+                document.getElementById("plano").style.visibility = "visible";
+                document.getElementById("planol").style.visibility = "visible";
+                document.getElementById("tempo").style.visibility = "visible";
+                document.getElementById("tempol").style.visibility = "visible";
+            }
+        }
         function Redirecionar(){
             //alert("Usuário Cadastrado com Sucesso!");
             //window.('pagamentos.html');
@@ -22,12 +36,13 @@
             window.open('facial.html');
         }
 
+        
+
     </script>
 </head>
 <body>
     <header>
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-        <div class=""></div>
         <img src="images/logo_semnome.png" height="10%" width="10%" style="position: static; right: auto;">
         <h1>PowerFit</h1>
     </header>
@@ -76,20 +91,20 @@
             
             
             <label for="funcao">Função:</label>
-            <select id="funcao" required>
+            <select id="funcao" onchange="updateTexto()">
                 <option value="cliente">Aluno</option>
                 <option value="instrutor">Instrutor</option>
                 <option value="administrador">Administrador</option>
                 </select>
-            <label for="plano">Plano:</label>
+            <label for="plano" id="planol">Plano:</label>
             <select id="plano" name="plano">
                 <option value="powersilver">PowerSilver</option>
                 <option value="powergold">PowerGold</option>
                 <option value="powerdiamond">PowerDiamond</option>
             </select>
 
-            <label for="plano">Tempo:</label>
-            <select id="plano" name="plano">
+            <label for="tempo" id="tempol">Tempo:</label>
+            <select id="tempo" name="plano">
                 <option value="mensal">Mensal</option>
                 <option value="trimestral">Trimestral</option>
                 <option value="anual">Anual</option>
