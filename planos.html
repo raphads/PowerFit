@@ -7,6 +7,12 @@
     <link rel="icon" href="images/logo_semnome.png">
     <link rel="stylesheet" href="site_academia.css">
     <script src="site_academia.js" defer></script>
+    <script>
+      function destravar(){
+           document.getElementById("valor").removeAttribute("readonly");
+           // btn.;const btn = 
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -30,45 +36,50 @@
     <section class="content">
         <form>
         <h2>Escolha o seu Plano</h2>
-        <div class="planos">
-            <div class="plano">
-                <p><h3>Plano PowerSilver</h3>
-                <p>R$ 99,99/mês</p>
+            
+                <div>
+               <h3>Plano PowerSilver</h3><br>
+                <input id="valor" value ="R$ 99,99/mês" readonly>
                 <ul>
-                    <li>Musculação</li>
-                    <li>Aulas de Grupo</li>
-                    <li>Uso de Cardio</li>
+                    <input type="checkbox" checked>Musculação</input><br>
+                    <input type="checkbox" checked>Aulas de Grupo</input><br>
+                    <input type="checkbox" checked>Uso de Cardio</input><br>
+                    <input type="checkbox" >Acesso ao Spa</input><br>
+                    <input type="checkbox" >Treinamento Personalizado</input><br>
+                    <input type="checkbox" >Acesso 24h</input>
                 </ul>
-                <button>Alterar Plano</button>
+                <input onclick="destravar()" value="Alterar Plano"></input>
+                <hr>
             </div>
-            <div class="plano">
+            <div>
                 <h3>Plano PowerGold</h3>
-                <p>R$ 159,99/mês</p>
+                <input id="valor" value ="R$ 159,99/mês" readonly>
                 <ul>
-                    <li>Musculação</li>
-                    <li>Aulas de Grupo</li>
-                    <li>Uso de Cardio</li>
-                    <li>Acesso ao Spa</li>
-                    <li>Treinamento Personalizado</li>
+                   <input type="checkbox" checked>Musculação</input><br>
+                    <input type="checkbox" checked>Aulas de Grupo</input><br>
+                    <input type="checkbox" checked>Uso de Cardio</input><br>
+                    <input type="checkbox" checked>Acesso ao Spa</input><br>
+                    <input type="checkbox" checked>Treinamento Personalizado</input><br>
+                    <input type="checkbox" >Acesso 24h</input>
                 </ul>
                 <button>Alterar Plano</button>
+            <hr>
             </div>
-            <div class="plano">
+            
+            <div>
                 <h3>Plano PowerDiamond</h3>
-                <p>R$ 249,99/mês</p>
+                <input id="valor" value ="R$ 249,99/mês" readonly>
                 <ul>
-                    <li>Musculação</li>
-                    <li>Aulas de Grupo</li>
-                    <li>Uso de Cardio</li>
-                    <li>Acesso ao Spa</li>
-                    <li>Treinamento Personalizado</li>
-                    <li>Acesso 24h</li>
+                    <input type="checkbox" checked>Musculação</input><br>
+                    <input type="checkbox" checked>Aulas de Grupo</input><br>
+                    <input type="checkbox" checked>Uso de Cardio</input><br>
+                    <input type="checkbox" checked>Acesso ao Spa</input><br>
+                    <input type="checkbox" checked>Treinamento Personalizado</input><br>
+                    <input type="checkbox" checked>Acesso 24h</input>
                 </ul>
                 <button>Alterar Plano</button>
             </div>
-        </div>
     </section>
-
 </form>
     <footer>
         <p>  <a href="https://facebook.com/"><img class="facebook" src="images/facebook.png" alt="" height="20px" width="20px"></a>&nbsp;  &nbsp;  <a href="https://instagram.com/"> <img class="facebook" src="images/instagram - Copia.png" alt="" height="20px" width="20px"></a>  &nbsp;  &nbsp;    <a href="https://twitter.com/"><img class="facebook" src="images/twitter.png" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://tiktok.com/"><img class="facebook" src="images/tik-tok.png" alt="" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://youtube.com/"><img class="facebook" src="images/youtube.png" alt="" height="20px" width="20px"></a> </p>
