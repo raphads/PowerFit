@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="site_academia.css">
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <script src="site_academia.js" defer></script>
+    <script>
+        function Redirecionar(){
+            alert("Aula Agendada com Sucesso!");
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -45,7 +50,7 @@
             <label for="horario">Horário:</label>
             <input type="time" id="horario" name="horario" required>
             
-            <button type="submit">Agendar</button>
+            <button type="submit" onclick="Redirecionar()">Agendar</button>
         </form>
     </section>
 

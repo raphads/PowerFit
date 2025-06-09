@@ -37,3 +37,7 @@ function toggleMenu() {
         document.getElementById("sidebar").classList.toggle("active");
 }
 }
+            var plano = document.getElementById("plano");
+            var tempo = document.getElementById("tempo");
+            var valor = 0;
+            var valorTotal = 0;

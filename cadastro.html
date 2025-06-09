@@ -27,6 +27,35 @@
         }
         function Redirecionar(){
             //alert("Usuário Cadastrado com Sucesso!");
+            /*
+            if (plano.value == "PowerSilver"){
+                valor = 99.99;
+                if(tempo.value == "Mensal"){
+                    valorTotal = valor;
+                }else if (tempo.value == "Trimestral"){
+                    valorTotal = valor * 2;
+                }else{
+                    valorTotal = valor * 4;
+                }
+            }else if(plano.value == "PowerGold"){
+                valor = 159.99;
+                if(tempo.value == "Mensal"){
+                    valorTotal = valor;
+                }else if (tempo.value == "Trimestral"){
+                    valorTotal = valor * 2;
+                }else{
+                    valorTotal = valor * 4;
+                }
+            }else{
+                valor = 259.99;
+                if(tempo.value == "Mensal"){
+                    valorTotal = valor;
+                }else if (tempo.value == "Trimestral"){
+                    valorTotal = valor * 2;
+                }else{
+                    valorTotal = valor * 4;
+                }
+            }*/
             window.location('pagamentos.html');
         }
         function Biom(){
@@ -110,7 +139,7 @@
                 <option value="anual">Anual</option>
             </select>
 
-            <button  onclick="Biom()" style="width: 40%;">Biometria</button>
+            <button  onclick="Biom()" style="width: 50%;">Biometria</button>
             <button  onclick="Facial()"style="width: 50%;">Reconhecimento Facial</button>
             
             <button type="submit" onclick="Redirecionar()">Cadastrar</button>

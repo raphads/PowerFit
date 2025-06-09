@@ -12,6 +12,7 @@
   
     <script>
         alert("Usuário Cadastrado com Sucesso!");
+       // document.getElementById("valor").value = valorTotal;
         function updateTexto(){
            /* var texto = select.options[select.selectedIndex].value;
             if (texto == "boleto"){
@@ -52,7 +53,7 @@
         }
         function clicar(){
             alert("Pagamento Realizado com Sucesso!");
-            window.open('agendamento.html');
+            window.location="agendamento.html";
         }
     </script>
 </head>
@@ -86,11 +87,22 @@
             <input type="date" id="data-vencimento" name="data-vencimento" value="2025-05-01" readonly>
             
             <label for="meio-pagamento">Forma de Pagamento:</label>
+            <div style="align-items: center;">
+                <img src="images/pag1.png" height="40px" width="40px">
+                <img src="images/pag2.png" height="40px" width="40px">
+                <img src="images/pag3.png" height="40px" width="40px">
+                <img src="images/pag4.png" height="40px" width="40px">
+                <img src="images/pag5.png" height="40px" width="40px">
+                <img src="images/pag6.png" height="40px" width="40px">
+                <img src="images/barra_.png" height="40px" width="40px">
+                <img src="images/pix_.png" height="40px" width="40px">
+            </div>
             <select id="meio-pagamento" name="meio-pagamento" onchange="updateTexto()">
                 <option value="cartao">Cartão de Crédito</option>
                 <option value="cartaodeb">Cartão de Débito</option>
                 <option value="boleto">Boleto Bancário</option>
                 <option value="pix">Pix</option>
+               <!-- <option value="pix" style="background-image: images/Logo—pix_powered_by_Banco_Central_(Brazil,_2020).svg.png">Pix</option>-->
             </select>
 
             <label for="cc" id="lcc">Número do Cartão:</label>
