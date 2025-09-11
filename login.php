@@ -23,11 +23,11 @@
 				});
             });
         var num = 3;
-        function Validar(){
+       /*   function Validar(){
             var user = (document.frm_cadastro.txt_email.value);
             var pass = (document.frm_cadastro.txt_senha.value);
             
-        if(num>0){
+    <!--  if(num>0){
             if ((user == "admin" || user == "admin@powerfit.com") && pass=="admin"){
                 alert("Login realizado com sucesso!");
                 window.location="cadastro.html";
@@ -39,11 +39,11 @@
             num--;
         }else{
             alert("Acesso negado! Entre em contato com o administrador.")
-        }    
+        }    -->
         document.frm_cadastro.txt_email.value=""
         document.frm_cadastro.txt_senha.value=""
         document.frm_cadastro.txt_email.focus();
-        }
+        }*/
         </script>
 </head>
     <body>
@@ -88,39 +88,7 @@
     <input type="button" name="fontemenos" id="fontemenos" class="fontemenos" value="A-">
 </div>
 </footer>
-<?php
- include 'conexao.php';
- if ($_SERVER["REQUEST_METHOD"] == "POST") {
-$user = $_POST["txt_email"];
-$senha = $_POST["txt_senha"];
-$sql = $conecta_db->prepare("SELECT * FROM tb_login WHERE (Usuario = '$user' or email = '$user') and senha = '$senha'");
-$sql->execute();
-$result = $sql->get_result(); // Executa a consulta e obtém o resultado
 
-if($user == "admin" && $senha == "admin"){
-    echo "<center>";
-    echo "<br>";
-    echo "<a href=\"area_adm.php\">Area do Administrador</a>";
-}else if ($result->num_rows > 0) {
-    echo "<center>";
-    echo "<hr>";
-    echo "LOGIN EFETUADO COM SUCESSO";
-    echo "<hr>";
-	echo "<br>";
-    //echo "<a href=\"login.php\">RETORNAR AO LOGIN </a>";
-    echo "<a href=\"listagem.php\">LISTA DE CONTAS </a>";
-    //header('location:listagem.php'); J Elimina a parte de cima, sem aparecer a mensagem
-} else {
-    echo "<center>";
-    echo "<hr>";
-    echo "Usuario ou Senha não conferem. Tente novamente.";
-    echo "<hr>";
-	echo "<br>";
-    echo "<a href=\"login.php\">RETORNAR AO LOGIN </a>";
-    }
-}
-
-?>
 
 
 </body>
