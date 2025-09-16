@@ -7,19 +7,12 @@
     <link rel="icon" href="images/logo_semnome.png">
     <link rel="stylesheet" href="site_academia.css">
     <script src="site_academia.js"></script>
-    <script>
-        function Redirecionar(){
-            alert("Equipamento Cadastrado com Sucesso!");
-        }
-    </script>
 </head>
 <body>
     <header>
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         <img src="images/logo_semnome.png" height="10%" width="10%" style="position: static; right: auto;">
         <h1>PowerFit</h1>
-        <!--    <iframe src="teste.html" height="100%" width="100%" style="border: none; " scrolling="no"></iframe>-->
-   
     </header>
 
 
@@ -35,28 +28,28 @@
             <li><a href="relatorios.html">Relatórios</a></li>
         </ul>
     </nav>
-    <form>
+    <form method="post" action="cad_equip.php">
         <section class="content" name="content">
             <h2>Cadastro de Equipamentos</h2>
             <form id="equipForm">
                 <label for="codigo">Código:</label>
-                <input type="number" id="codigo" required placeholder="1111" value="1111"><br>
+                <input type="number" name="codigo" id="codigo" required placeholder="1111" value="1111"><br>
                 <label for="tipo">Tipo:</label>
-                <input type="text" id="tipo" required><br>
+                <input type="text" name="tipo" id="tipo" required><br>
                 <label for="marca">Marca:</label>
-                <input type="text" id="marca" required><br>
+                <input type="text" name="marca" id="marca" required><br>
                 <label for="data_compra">Data de Compra:</label>
-                <input type="date" id="data_compra" required><br>
+                <input type="date" name="data_compra" id="data_compra" required><br>
                 <label for="data_manut">Data de Manutenção:</label>
-                <input type="date" id="data_manut" required><br>
+                <input type="date" name="data_manut" id="data_manut" required><br>
                 <label for="modalidade">Status:</label>
-                <select id="modalidade">
+                <select id="modalidade" name="modalidade">
                     <option value="status1">Disponível</option>
                     <option value="status2">Em Manutenção</option>
                     <option value="status3">Substituído</option>
                     </select> <br>
                 
-                <button type="submit" onclick="Redirecionar()">Cadastrar</button>
+                <button type="submit" onClick="document.form.action='cad_equip.php'">Cadastrar</button>
     </form>
 </section>
 <footer>

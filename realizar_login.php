@@ -18,7 +18,7 @@ if($user == "admin" && $senha == "admin"){
     echo "<hr>";
 	echo "<br>";
     //echo "<a href=\"login.php\">RETORNAR AO LOGIN </a>";
-    echo "<a href=\"listagem.php\">Lista de Usuários</a>";
+    echo "<a href=\"cadastro.php\">Lista de Usuários</a>";
     //header('location:listagem.php'); J Elimina a parte de cima, sem aparecer a mensagem
 } else {
     echo "<center>";
