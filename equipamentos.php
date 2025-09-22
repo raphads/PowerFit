@@ -32,8 +32,8 @@
         <section class="content" name="content">
             <h2>Cadastro de Equipamentos</h2>
             <form id="equipForm">
-                <label for="codigo">Código:</label>
-                <input type="number" name="codigo" id="codigo" required placeholder="1111" value="1111"><br>
+              <!--  <label for="codigo">Código:</label> 
+                <input type="number" name="codigo" id="codigo" required placeholder="1111" value="1111"><br> -->
                 <label for="tipo">Tipo:</label>
                 <input type="text" name="tipo" id="tipo" required><br>
                 <label for="marca">Marca:</label>
@@ -44,9 +44,9 @@
                 <input type="date" name="data_manut" id="data_manut" required><br>
                 <label for="modalidade">Status:</label>
                 <select id="modalidade" name="modalidade">
-                    <option value="status1">Disponível</option>
-                    <option value="status2">Em Manutenção</option>
-                    <option value="status3">Substituído</option>
+                    <option value="Disponível">Disponível</option>
+                    <option value="Em Manutenção">Em Manutenção</option>
+                    <option value="Substituído">Substituído</option>
                     </select> <br>
                 
                 <button type="submit" onClick="document.form.action='cad_equip.php'">Cadastrar</button>

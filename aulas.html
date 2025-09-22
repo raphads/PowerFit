@@ -39,20 +39,19 @@
             
             <label for="modalidade">Modalidade:</label>
             <select id="modalidade">
-                <option value="modalidade1">Yoga</option>
-                <option value="modalidade2">Spinning</option>
-                <option value="modalidade3">Musculação</option>
-                <option value="modalidade4">Pilates</option>
+                <option value="Yoga">Yoga</option>
+                <option value="Spinning">Spinning</option>
+                <option value="Musculação">Musculação</option>
+                <option value="Pilates">Pilates</option>
                 </select>
             <br><label for="instrutor">Instrutor:</label>
             <select id="instrutor" name="instrutor">
-                <option value="instr1">João</option>
-                <option value="instr2">Humberto</option>
-                <option value="instr3">Rennan</option>
+                <option value="Humberto">Humberto</option>
+                <option value="Ivan">Ivan</option>
             </select>
             <br>
             <label for="qtde">Quantidade Máxima de Alunos:</label>
-            <input type="number" id="qtde" name="qtde" required>
+            <input type="number" min="1" value="1" onKeypress="event.preventDefault();" id="qtde" name="qtde" required>
             <br>
             <label for="data_aula">Data:</label>
             <input type="date" id="data_aula" required>
@@ -62,9 +61,9 @@
             <br>
             <label for="tempo">Duração:</label>
             <select id="tempo">
-                <option value="hora1">1 Hora</option>
-                <option value="hora2">2 Horas</option>
-                <option value="hora3">3 Horas</option>
+                <option value="1 Hora">1 Hora</option>
+                <option value="2 Horas">2 Horas</option>
+                <option value="3 Horas">3 Horas</option>
             </select>
             <br>
             <button type="submit" onclick="Redirecionar()">Cadastrar</button>

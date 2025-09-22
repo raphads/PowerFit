@@ -1,7 +1,20 @@
+	<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit">
+    <title>PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
+    <link rel="stylesheet" href="site_academia.css">
+    <script src="site_academia.js"></script>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+</head>
+</html>			
+
 <?php
  include 'conexao.php';
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-$codigo = $_POST["codigo"];
+//$codigo = $_POST["codigo"];
 $tipo = $_POST["tipo"];
 $marca = $_POST["marca"];
 $data_compra = $_POST["data_compra"];
@@ -29,11 +42,11 @@ if ($result->num_rows > 0) {
     echo "<hr>";
     echo "Senhas não conferem. Tente novamente.";
     echo "<hr>";
-	echo "<br>";
+	echo "<br>";  cod,'$codigo',
     //return;*/
 /*}else{*/
-      $sql = $conecta_db->prepare ("INSERT INTO tb_equip (cod, tipo, marca, data_comp, data_man, status_equip)
-	                     VALUES ('$codigo','$tipo','$marca','$data_compra','$data_manut','$status')") ;
+      $sql = $conecta_db->prepare ("INSERT INTO tb_equip ( tipo, marca, data_comp, data_man, status_equip)
+	                     VALUES ('$tipo','$marca','$data_compra','$data_manut','$status')") ;
     $sql->execute();
 
 	     /*   if ($sql->affected_rows > 0) {
@@ -55,4 +68,4 @@ if ($result->num_rows > 0) {
 
 ?>
      	
-				  
+  

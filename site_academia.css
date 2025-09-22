@@ -80,6 +80,15 @@ header h1 {
     padding: 10px;
     transition: background-color 0.3s ease;
 }
+
+button a {
+      color: white;
+    text-decoration: none;
+    display: block;
+   /* font-size: 1.2rem;*/
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
  
 .sidebar a:hover {
     background-color: #13275d;
@@ -377,3 +386,7 @@ div.scroll-container {
  .scroll-container {
   color: #FFF;
  }
+/*
+ section table{
+  width: inherit;
+ }*/

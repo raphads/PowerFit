@@ -16,6 +16,7 @@ $cidade = $_POST["cidade"];
 $estado = $_POST["estado"];
 $funcao = $_POST["funcao"];
 $plano = $_POST["plano"];
+$tempo = $_POST["tempo"];
 
 $sql = $conecta_db->prepare("SELECT * FROM tb_login WHERE cpf = ?");
 $sql->bind_param("s", $cpf); // "s" indica que estamos passando um string (CPF)
@@ -40,8 +41,8 @@ if ($result->num_rows > 0) {
 	echo "<br>";
     //return;*/
 /*}else{*/
-      $sql = $conecta_db->prepare ("INSERT INTO tb_login (cpf, nome, email, senha, data_nasc, tel, cep, rua, num, comp, bairro, cid, uf, func, plano)
-	                     VALUES ('$cpf','$nome','$email','$senha','$data_nasc','$telefone','$cep','$rua','$numero','$compl', '$bairro', '$cidade', '$estado','$funcao', '$plano')") ;
+      $sql = $conecta_db->prepare ("INSERT INTO tb_login (cpf, nome, email, senha, data_nasc, tel, cep, rua, num, comp, bairro, cid, uf, func, plano, tempo)
+	                     VALUES ('$cpf','$nome','$email','$senha','$data_nasc','$telefone','$cep','$rua','$numero','$compl', '$bairro', '$cidade', '$estado','$funcao', '$plano', '$tempo')") ;
     $sql->execute();
 
 	     /*   if ($sql->affected_rows > 0) {

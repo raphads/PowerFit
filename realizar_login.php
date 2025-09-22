@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit">
+    <title>PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
+    <link rel="stylesheet" href="site_academia.css">
+    <script src="site_academia.js"></script>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+
+        </head>
+        </html>
 <?php
  include 'conexao.php';
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -7,7 +20,7 @@ $sql = $conecta_db->prepare("SELECT * FROM tb_login WHERE (email = '$user') and 
 $sql->execute();
 $result = $sql->get_result(); // Executa a consulta e obtém o resultado
 
-if($user == "admin" && $senha == "admin"){
+if($user == "admin@powerfit.com" && $senha == "admin"){
     echo "<center>";
     echo "<br>";
     echo "<a href=\"area_adm.php\">Area do Administrador</a>";
@@ -31,3 +44,5 @@ if($user == "admin" && $senha == "admin"){
 }
 
 ?>
+
+

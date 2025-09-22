@@ -121,22 +121,22 @@
             
             <label for="funcao">Função:</label>
             <select id="funcao" name="funcao" onchange="updateTexto()">
-                <option value="cliente">Aluno</option>
-                <option value="instrutor">Instrutor</option>
-                <option value="administrador">Administrador</option>
+                <option value="Aluno">Aluno</option>
+                <option value="Instrutor">Instrutor</option>
+                <option value="Administrador">Administrador</option>
                 </select>
             <label for="plano" id="planol">Plano:</label>
             <select id="plano" name="plano">
-                <option value="powersilver">PowerSilver</option>
-                <option value="powergold">PowerGold</option>
-                <option value="powerdiamond">PowerDiamond</option>
+                <option value="Power Silver">PowerSilver</option>
+                <option value="Power Gold">PowerGold</option>
+                <option value="Power Diamond">PowerDiamond</option>
             </select>
 
             <label for="tempo" id="tempol">Tempo:</label>
-            <select id="tempo" name="plano">
-                <option value="mensal">Mensal</option>
-                <option value="trimestral">Trimestral</option>
-                <option value="anual">Anual</option>
+            <select id="tempo" name="tempo">
+                <option value="Mensal">Mensal</option>
+                <option value="Trimestral">Trimestral</option>
+                <option value="Anual">Anual</option>
             </select>
 
             <button  onclick="Biom()" style="width: 50%;">Biometria</button>

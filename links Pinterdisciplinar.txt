@@ -32,3 +32,12 @@ https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
 https://www.youtube.com/watch?v=kXPr_HvBPqM  mudar baseado no selections
 https://www.w3schools.com/jsref/event_onchange.asp
 https://stackoverflow.com/questions/50191630/how-to-use-js-to-update-text-based-on-selected-option-value
+https://www.w3schools.in/html/marquee-tag 
+https://developer.mozilla.org/pt-BR/docs/Web/HTML/Reference/Elements/marquee
+https://tutorialehtml.com/pt/tag-marquee-em-html/
+http://www.maikbasso.com.br/2012/03/efeito-de-movimento-com-marquee.html 
+http://localhost:8080/
+http://localhost:8080/phpmyadmin/
+https://github.com/fawno/FPDF/blob/master/fpdf/fpdf.php
+https://stackoverflow.com/questions/19233415/how-to-make-type-number-to-positive-numbers-only
+https://stackoverflow.com/questions/27740112/how-to-make-input-type-number-un-editable-but-still-functioning
