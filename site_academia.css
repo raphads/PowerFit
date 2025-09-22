@@ -132,12 +132,13 @@ input[type="date"], input[type="time"] {
     font-size: 1rem;
 }
  
-button {
+button, .button-class {
     background-color: #1e3a8a;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-weight: bold;
+    text-decoration:none
 }
  
 button:hover {

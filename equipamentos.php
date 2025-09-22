@@ -19,9 +19,9 @@
     <nav class="sidebar" id="sidebar">
         <ul>
             <li><a href="index.html">Início</a></li>
-            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="cadastro.php">Cadastro</a></li>
             <li><a href="agendamento.html">Agendamento</a></li>
-            <li><a href="equipamentos.html">Equipamentos</a></li>
+            <li><a href="equipamentos.php">Equipamentos</a></li>
             <li><a href="planos.html">Planos</a></li>
             <li><a href="pagamentos.html">Pagamentos</a></li>
             <li><a href="aulas.html">Aulas</a></li>

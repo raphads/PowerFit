@@ -41,3 +41,13 @@ http://localhost:8080/phpmyadmin/
 https://github.com/fawno/FPDF/blob/master/fpdf/fpdf.php
 https://stackoverflow.com/questions/19233415/how-to-make-type-number-to-positive-numbers-only
 https://stackoverflow.com/questions/27740112/how-to-make-input-type-number-un-editable-but-still-functioning
+https://stackoverflow.com/questions/16562577/how-can-i-make-a-button-redirect-my-page-to-another-page
+https://www.w3schools.com/tags/att_input_type_number.asp
+https://stackoverflow.com/questions/19233415/how-to-make-type-number-to-positive-numbers-only
+https://stackoverflow.com/questions/27740112/how-to-make-input-type-number-un-editable-but-still-functioning
+https://stackoverflow.com/questions/16562577/how-can-i-make-a-button-redirect-my-page-to-another-page
+https://www.geeksforgeeks.org/html/how-to-link-a-button-to-another-page-in-html/
+https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
+https://stackoverflow.com/questions/10853881/how-to-remove-underline-from-a-link-in-html
+https://www.w3schools.com/php/func_network_header.asp
+https://stackoverflow.com/questions/14031569/redirecting-a-page-automatically-in-php

@@ -10,7 +10,7 @@ $result = $sql->get_result(); // Executa a consulta e obtém o resultado
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Listagem de Equipamentos - PowerFit</title>
+    <title>Listagem de Usuários - PowerFit</title>
     <link rel="stylesheet" href="site_academia.css">
     <style>
         table {
@@ -35,7 +35,7 @@ $result = $sql->get_result(); // Executa a consulta e obtém o resultado
     </header>
 
     <section class="content" style="width :170%">
-        <h2>Equipamentos Cadastrados</h2>
+        <h2>Usuários Cadastrados</h2>
         <?php if (count($sql) > 0): ?>
             <table>
                 <thead>

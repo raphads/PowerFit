@@ -23,7 +23,8 @@ $result = $sql->get_result(); // Executa a consulta e obtém o resultado
 if($user == "admin@powerfit.com" && $senha == "admin"){
     echo "<center>";
     echo "<br>";
-    echo "<a href=\"area_adm.php\">Area do Administrador</a>";
+    //echo "<a href=\"area_adm.php\">Area do Administrador</a>";
+    header('location:area_adm.php');
 }else if ($result->num_rows > 0) {
     echo "<center>";
     echo "<hr>";
@@ -31,8 +32,9 @@ if($user == "admin@powerfit.com" && $senha == "admin"){
     echo "<hr>";
 	echo "<br>";
     //echo "<a href=\"login.php\">RETORNAR AO LOGIN </a>";
-    echo "<a href=\"cadastro.php\">Lista de Usuários</a>";
+    //echo "<a href=\"cadastro.php\">Lista de Usuários</a>";
     //header('location:listagem.php'); J Elimina a parte de cima, sem aparecer a mensagem
+    header('location:agendamento.html');
 } else {
     echo "<center>";
     echo "<hr>";

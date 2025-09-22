@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="site_academia.css">
     <script src="site_academia.js"></script>
     <script>
-        function relatorio(){
-            window.location('relatorios.html');
+      /*  function Relatorio(){
+            window.location.replace("relatorios.html");
+
+           // window.location('relatorios.html');
             //window.location('pagamentos.html');
-        }
+        }*/
 
     </script>
 </head>
@@ -21,11 +23,16 @@
         <p class="link" text="white" ><a href="login.php">Log out</a></p>
     </header>
         <section class="content" name="content">
+           
         <h2>Listas</h2>
-        <button>Lista de Usuários</button><br>
-        <button>Lista de Equipamentos</button><br>
-        <button>Lista de Aulas</button><br>
-        <button onClick="relatorio()">Relatórios</button><br>
+        <a href = "lista_cad.php" class="button-class" style="height: 10px">Lista de Usuários</button><br><br>
+        <a href = "lista_equip.php" class="button-class">Lista de Equipamentos</button><br><br>
+        <a href = "lista_aula.php" class="button-class">Lista de Aulas</button><br><br>
+        <a href = "relatorios.html" class="button-class">Relatórios</button><br><br>
+        <a href = "cadastro.php" class="button-class">Cadastro de Usuários</button><br><br>
+        <a href = "equipamentos.php" class="button-class">Cadastro de Equipamentos</button><br><br>
 
+  
+    </section>
 </body>
 </html>
