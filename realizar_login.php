@@ -34,7 +34,7 @@ if($user == "admin@powerfit.com" && $senha == "admin"){
     //echo "<a href=\"login.php\">RETORNAR AO LOGIN </a>";
     //echo "<a href=\"cadastro.php\">Lista de Usuários</a>";
     //header('location:listagem.php'); J Elimina a parte de cima, sem aparecer a mensagem
-    header('location:agendamento.html');
+    header('location:agendamento.php');
 } else {
     echo "<center>";
     echo "<hr>";

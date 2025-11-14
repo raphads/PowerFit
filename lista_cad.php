@@ -12,6 +12,9 @@ $result = $sql->get_result(); // Executa a consulta e obtém o resultado
     <meta charset="UTF-8">
     <title>Listagem de Usuários - PowerFit</title>
     <link rel="stylesheet" href="site_academia.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <style>
         table {
             width: 100%;
@@ -37,7 +40,8 @@ $result = $sql->get_result(); // Executa a consulta e obtém o resultado
     <section class="content" style="width :170%">
         <h2>Usuários Cadastrados</h2>
         <?php if (count($sql) > 0): ?>
-            <table>
+            <div class = "table-responsive">
+            <table class = "table table-striped">
                 <thead>
                     <tr>
                         <th>CPF</th>
@@ -81,6 +85,7 @@ $result = $sql->get_result(); // Executa a consulta e obtém o resultado
                     <?php endforeach; ?>
                 </tbody>
             </table>
+        </div>
         <?php else: ?>
             <p>Nenhum equipamento cadastrado.</p>
         <?php endif; ?>

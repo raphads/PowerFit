@@ -31,7 +31,7 @@
         <a href = "relatorios.html" class="button-class">Relatórios</button><br><br>
         <a href = "cadastro.php" class="button-class">Cadastro de Usuários</button><br><br>
         <a href = "equipamentos.php" class="button-class">Cadastro de Equipamentos</button><br><br>
-
+        <a href = "aulas.php" class="button-class">Cadastro de Aulas</button><br><br>
   
     </section>
 </body>

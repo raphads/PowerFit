@@ -23,6 +23,7 @@
 				});
             });
         var num = 3;
+        var usuario_login = document.frm_cadastro.txt_email.value;
        /*   function Validar(){
             var user = (document.frm_cadastro.txt_email.value);
             var pass = (document.frm_cadastro.txt_senha.value);

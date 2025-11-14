@@ -9,7 +9,7 @@
     <script src="site_academia.js" defer></script>
     <script>
         function Redirecionar(){
-            alert("Aula Cadastrada com Sucesso!");
+          //  alert("Aula Cadastrada com Sucesso!");
         }
     </script>
   
@@ -24,21 +24,20 @@
     <nav class="sidebar" id="sidebar">
         <ul>
             <li><a href="index.html">Início</a></li>
-         <!--   <li><a href="cadastro.php">Cadastro</a></li> -->
             <li><a href="agendamento.html">Agendamento</a></li>
-          <!--  <li><a href="equipamentos.php">Equipamentos</a></li> -->
             <li><a href="planos.html">Planos</a></li>
             <li><a href="pagamentos.html">Pagamentos</a></li>
-            <li><a href="aulas.html">Aulas</a></li>
-          <!--  <li><a href="relatorios.html">Relatórios</a></li> -->
+            
+         
         </ul>
     </nav>
-    <section class="content" name="content">
+    <section class="content" name="content">.
+        
         <h2>Cadastro de Aulas</h2>
         
-            
+          <form method="POST" action="cad_aulas.php">  
             <label for="modalidade">Modalidade:</label>
-            <select id="modalidade">
+            <select id="modalidade" name="modalidade">
                 <option value="Yoga">Yoga</option>
                 <option value="Spinning">Spinning</option>
                 <option value="Musculação">Musculação</option>
@@ -54,19 +53,19 @@
             <input type="number" min="1" value="1" onKeypress="event.preventDefault();" id="qtde" name="qtde" required>
             <br>
             <label for="data_aula">Data:</label>
-            <input type="date" id="data_aula" required>
+            <input type="date" id="data_aula" name="data_aula" required>
             <br>
             <label for="horario">Horário:</label>
             <input type="time" id="horario" name="horario" required>
             <br>
             <label for="tempo">Duração:</label>
-            <select id="tempo">
+            <select id="tempo" id="tempo" name="tempo">
                 <option value="1 Hora">1 Hora</option>
                 <option value="2 Horas">2 Horas</option>
                 <option value="3 Horas">3 Horas</option>
             </select>
             <br>
-            <button type="submit" onclick="Redirecionar()">Cadastrar</button>
+            <button type="submit" onClick="document.form.action='cad_aulas.php'">Cadastrar</button>
         </form>
     </section>
 

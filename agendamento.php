@@ -10,9 +10,24 @@
     <script src="site_academia.js" defer></script>
     <script>
         function Redirecionar(){
-            alert("Aula Agendada com Sucesso!");
+         //   alert("Aula Agendada com Sucesso!");
         }
     </script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background: #f4f4f4;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -33,25 +48,42 @@
           <!--  <li><a href="relatorios.html">Relatórios</a></li>-->
         </ul>
     </nav>
-    <section class="content">
+    
         <h2>Agendamento de Aulas</h2>
-        <form>
-            <label for="modalidade">Modalidade:</label>
-            <select id="modalidade" name="modalidade">
-                <option value="musculacao">Musculação</option>
-                <option value="yoga">Yoga</option>
-                <option value="spinning">Spinning</option>
-                <option value="pilates">Pilates</option>
-            </select>
-            
-            <label for="data">Data:</label>
-            <input type="date" id="data" name="data" required>
-            
-            <label for="horario">Horário:</label>
-            <input type="time" id="horario" name="horario" required>
-            
-            <button type="submit" onclick="Redirecionar()">Agendar</button>
-        </form>
+       
+
+        <section class="content" style="width :150%">
+        <?php if (count($sql) > 0): ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Modalidade</th>
+                        <th>Instrutor</th>
+                        <th>Quantidade Máxima de Alunos</th>
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>Duração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($result as $eq): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($eq['cod_aula']) ?></td>
+                            <td><?= htmlspecialchars($eq['modalidade']) ?></td>
+                            <td><?= htmlspecialchars($eq['instrutor']) ?></td>
+                            <td><?= htmlspecialchars($eq['qtde_alunos']) ?></td>
+                            <td><?= htmlspecialchars($eq['data_aula']) ?></td>
+                            <td><?= htmlspecialchars($eq['hora']) ?></td>
+                            <td><?= htmlspecialchars($eq['duracao']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p>Nenhuma aula cadastrada.</p>
+        <?php endif; ?>
+
     </section>
 
     
