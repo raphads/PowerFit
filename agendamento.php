@@ -1,3 +1,13 @@
+<?php
+session_start();
+include 'conexao.php';
+
+$sql = $conecta_db->prepare("SELECT * FROM tb_aulas");
+$sql->execute();
+$result = $sql->get_result(); 
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,6 +21,7 @@
     <script>
         function Redirecionar(){
          //   alert("Aula Agendada com Sucesso!");
+         //print(usuario_login);
         }
     </script>
     <style>
@@ -49,15 +60,18 @@
         </ul>
     </nav>
     
-        <h2>Agendamento de Aulas</h2>
+        
        
 
         <section class="content" style="width :150%">
+            <h2>Agendamento de Aulas</h2>
+
         <?php if (count($sql) > 0): ?>
+            <form method="POST" action="salvar_agendamento.php">
             <table>
                 <thead>
                     <tr>
-                        <th>Código</th>
+                        <th>Agendar</th>
                         <th>Modalidade</th>
                         <th>Instrutor</th>
                         <th>Quantidade Máxima de Alunos</th>
@@ -69,21 +83,24 @@
                 <tbody>
                     <?php foreach ($result as $eq): ?>
                         <tr>
-                            <td><?= htmlspecialchars($eq['cod_aula']) ?></td>
+                            <td><input type="checkbox" name="aulas[]" value="<?= $eq['cod_aula'] ?>"></td>
                             <td><?= htmlspecialchars($eq['modalidade']) ?></td>
                             <td><?= htmlspecialchars($eq['instrutor']) ?></td>
                             <td><?= htmlspecialchars($eq['qtde_alunos']) ?></td>
                             <td><?= htmlspecialchars($eq['data_aula']) ?></td>
                             <td><?= htmlspecialchars($eq['hora']) ?></td>
                             <td><?= htmlspecialchars($eq['duracao']) ?></td>
+                            <td><></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
-            </table>
+            </table> 
+            <button type="submit">Agendar</button>
         <?php else: ?>
             <p>Nenhuma aula cadastrada.</p>
         <?php endif; ?>
-
+               
+                </form>
     </section>
 
     

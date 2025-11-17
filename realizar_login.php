@@ -12,11 +12,13 @@
         </head>
         </html>
 <?php
+session_start();
  include 'conexao.php';
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $user = $_POST["txt_email"];
 $senha = $_POST["txt_senha"];
-$sql = $conecta_db->prepare("SELECT * FROM tb_login WHERE (email = '$user') and senha = '$senha'");
+$sql = $conecta_db->prepare("SELECT * FROM tb_login WHERE email = ? AND senha = ?");
+$sql->bind_param("ss", $user, $senha); // "ss" = duas strings
 $sql->execute();
 $result = $sql->get_result(); // Executa a consulta e obtém o resultado
 
@@ -31,6 +33,8 @@ if($user == "admin@powerfit.com" && $senha == "admin"){
     echo "Login realizado com sucesso!";
     echo "<hr>";
 	echo "<br>";
+    $row = $result->fetch_assoc();
+    $_SESSION['usuario_id'] = $row['id'];
     //echo "<a href=\"login.php\">RETORNAR AO LOGIN </a>";
     //echo "<a href=\"cadastro.php\">Lista de Usuários</a>";
     //header('location:listagem.php'); J Elimina a parte de cima, sem aparecer a mensagem

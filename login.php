@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit">
-    <title>PowerFit</title>
+    <title>PowerFit - Login</title>
     <link rel="icon" href="images/logo_semnome.png">
     <link rel="stylesheet" href="site_academia.css">
     <script src="site_academia.js"></script>
@@ -23,7 +23,7 @@
 				});
             });
         var num = 3;
-        var usuario_login = document.frm_cadastro.txt_email.value;
+        var usuario_login = (document.frm_cadastro.txt_email.value);
        /*   function Validar(){
             var user = (document.frm_cadastro.txt_email.value);
             var pass = (document.frm_cadastro.txt_senha.value);

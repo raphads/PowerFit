@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit">
-    <title>PowerFit</title>
+    <title>PowerFit - Cadastro de Equipamentos</title>
     <link rel="icon" href="images/logo_semnome.png">
     <link rel="stylesheet" href="site_academia.css">
     <script src="site_academia.js"></script>

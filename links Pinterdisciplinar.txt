@@ -51,3 +51,6 @@ https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
 https://stackoverflow.com/questions/10853881/how-to-remove-underline-from-a-link-in-html
 https://www.w3schools.com/php/func_network_header.asp
 https://stackoverflow.com/questions/14031569/redirecting-a-page-automatically-in-php
+https://medium.com/@techsolutionstuff/how-to-convert-html-to-pdf-using-jquery-89b01ec1a100
+https://www.w3schools.com/php/php_ref_math.asp https://www.w3schools.com/jquery/jquery_hide_show.asp
+https://www.geeksforgeeks.org/sql/sql-injection/ https://www.geeksforgeeks.org/ethical-hacking/xpath-injection/ https://www.geeksforgeeks.org/html/how-to-generate-pdf-file-using-jspdf-library/ https://www.geeksforgeeks.org/html/how-to-generate-pdf-file-using-jspdf-library/ https://www.geeksforgeeks.org/html/how-to-generate-pdf-file-using-jspdf-library/ https://www.geeksforgeeks.org/html/how-to-generate-pdf-file-using-jspdf-library/

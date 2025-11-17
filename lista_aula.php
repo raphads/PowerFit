@@ -11,7 +11,8 @@ $result = $sql->get_result();
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Listagem de Equipamentos - PowerFit</title>
+    <title>Listagem de Aulas - PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
     <link rel="stylesheet" href="site_academia.css">
     <style>
         table {
@@ -54,12 +55,18 @@ $result = $sql->get_result();
                     <?php foreach ($result as $eq): ?>
                         <tr>
                             <td><?= htmlspecialchars($eq['cod_aula']) ?></td>
-                            <td><?= htmlspecialchars($eq['modalidade']) ?></td>
-                            <td><?= htmlspecialchars($eq['instrutor']) ?></td>
-                            <td><?= htmlspecialchars($eq['qtde_alunos']) ?></td>
-                            <td><?= htmlspecialchars($eq['data_aula']) ?></td>
-                            <td><?= htmlspecialchars($eq['hora']) ?></td>
-                            <td><?= htmlspecialchars($eq['duracao']) ?></td>
+                            <td contenteditable="true" 
+                                 onblur="atualizarCampo(this, 'modalidade', <?= $eq['cod_aula'] ?>)"><?= htmlspecialchars($eq['modalidade']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'instrutor', <?= $eq['cod_aula'] ?>)"><?= htmlspecialchars($eq['instrutor']) ?></td>
+                            <td contenteditable="true" 
+                onblur="atualizarCampo(this, 'qtde_alunos', <?= $eq['cod_aula'] ?>)"><?= htmlspecialchars($eq['qtde_alunos']) ?></td>
+                            <td contenteditable="true" 
+                onblur="atualizarCampo(this, 'data_aula', <?= $eq['cod_aula'] ?>)"><?= htmlspecialchars($eq['data_aula']) ?></td>
+                            <td contenteditable="true" 
+                onblur="atualizarCampo(this, 'hora', <?= $eq['cod_aula'] ?>)"><?= htmlspecialchars($eq['hora']) ?></td>
+                            <td contenteditable="true" 
+                onblur="atualizarCampo(this, 'duracao', <?= $eq['cod_aula'] ?>)"><?= htmlspecialchars($eq['duracao']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -68,5 +75,26 @@ $result = $sql->get_result();
             <p>Nenhuma aula cadastrada.</p>
         <?php endif; ?>
     </section>
+
+    <script>
+function atualizarCampo(elemento, campo, cod_aula) {
+    const novoValor = elemento.innerText;
+
+    fetch('atualizar_aula.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cod_aula, campo, valor: novoValor })
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Atualização:', data);
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Erro ao atualizar campo.');
+    });
+}
+</script>
+
 </body>
 </html>

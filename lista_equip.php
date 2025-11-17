@@ -97,6 +97,7 @@ $pass = "";       // ajuste sua senha
 <head>
     <meta charset="UTF-8">
     <title>Listagem de Equipamentos - PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
     <link rel="stylesheet" href="site_academia.css">
     <style>
         table {
@@ -113,6 +114,43 @@ $pass = "";       // ajuste sua senha
             background: #f4f4f4;
         }
     </style>
+
+<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script> 
+<script>
+$(document).ready(function () {  
+    var form = $('.form'),  
+    cache_width = form.width(),  
+    a4 = [595.28, 841.89]; // for a4 size paper width and height  
+
+    $('#create_pdf').on('click', function () {  
+        $('body').scrollTop(0);  
+        createPDF();  
+    });  
+    
+    function createPDF() {  
+        getCanvas().then(function (canvas) {  
+            var  
+             img = canvas.toDataURL("image/png"),  
+             doc = new jsPDF({  
+                 unit: 'px',  
+                 format: 'a4'  
+             });  
+            doc.addImage(img, 'JPEG', 20, 20);  
+            doc.save('techsolutionstuff.pdf');  
+            form.width(cache_width);  
+        });  
+    }  
+      
+    function getCanvas() {  
+        form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');  
+        return html2canvas(form, {  
+            imageTimeout: 2000,  
+            removeContainer: true  
+        });  
+    }
+});
+</script>
 </head>
 <body>
     <header style="width :150%">
@@ -121,6 +159,7 @@ $pass = "";       // ajuste sua senha
     </header>
 
     <section class="content" style="width :150%">
+        <form>
         <h2>Equipamentos Cadastrados</h2>
         <?php if (count($sql) > 0): ?>
             <table>
@@ -138,11 +177,16 @@ $pass = "";       // ajuste sua senha
                     <?php foreach ($result as $eq): ?>
                         <tr>
                             <td><?= htmlspecialchars($eq['cod']) ?></td>
-                            <td><?= htmlspecialchars($eq['tipo']) ?></td>
-                            <td><?= htmlspecialchars($eq['marca']) ?></td>
-                            <td><?= htmlspecialchars($eq['data_comp']) ?></td>
-                            <td><?= htmlspecialchars($eq['data_man']) ?></td>
-                            <td><?= htmlspecialchars($eq['status_equip']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'tipo', <?= $eq['cod'] ?>)"><?= htmlspecialchars($eq['tipo']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'marca', <?= $eq['cod'] ?>)"><?= htmlspecialchars($eq['marca']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'data_comp', <?= $eq['cod'] ?>)"><?= htmlspecialchars($eq['data_comp']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'data_man', <?= $eq['cod'] ?>)"><?= htmlspecialchars($eq['data_man']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'status_equip', <?= $eq['cod'] ?>)"><?= htmlspecialchars($eq['status_equip']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -150,6 +194,29 @@ $pass = "";       // ajuste sua senha
         <?php else: ?>
             <p>Nenhum equipamento cadastrado.</p>
         <?php endif; ?>
+            <button id="create_pdf">PDF</button>
+        </form>
     </section>
+
+    <script>
+function atualizarCampo(elemento, campo, cod) {
+    const novoValor = elemento.innerText;
+
+    fetch('atualizar_equip.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cod, campo, valor: novoValor })
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Atualização:', data);
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Erro ao atualizar campo.');
+    });
+}
+</script>
+ 
 </body>
 </html>

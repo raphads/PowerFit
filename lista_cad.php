@@ -11,6 +11,7 @@ $result = $sql->get_result(); // Executa a consulta e obtém o resultado
 <head>
     <meta charset="UTF-8">
     <title>Listagem de Usuários - PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
     <link rel="stylesheet" href="site_academia.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -66,21 +67,48 @@ $result = $sql->get_result(); // Executa a consulta e obtém o resultado
                     <?php foreach ($result as $eq): ?>
                         <tr>
                             <td><?= htmlspecialchars($eq['cpf']) ?></td>
-                            <td><?= htmlspecialchars($eq['nome']) ?></td>
-                            <td><?= htmlspecialchars($eq['email']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'nome', <?= $eq['id'] ?>)">
+                                <?= htmlspecialchars($eq['nome']) ?>
+                            </td>
+
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'email', <?= $eq['id'] ?>)">
+                                <?= htmlspecialchars($eq['email']) ?>
+                            </td>
                             <td><?= htmlspecialchars($eq['senha']) ?></td>
-                            <td><?= htmlspecialchars($eq['data_nasc']) ?></td>
-                            <td><?= htmlspecialchars($eq['tel']) ?></td>
-                            <td><?= htmlspecialchars($eq['cep']) ?></td>
-                            <td><?= htmlspecialchars($eq['rua']) ?></td>
-                            <td><?= htmlspecialchars($eq['num']) ?></td>
-                            <td><?= htmlspecialchars($eq['comp']) ?></td>
-                            <td><?= htmlspecialchars($eq['bairro']) ?></td>
-                            <td><?= htmlspecialchars($eq['cid']) ?></td>
-                            <td><?= htmlspecialchars($eq['uf']) ?></td>
-                            <td><?= htmlspecialchars($eq['func']) ?></td>
-                            <td><?= htmlspecialchars($eq['plano']) ?></td>
-                            <td><?= htmlspecialchars($eq['tempo']) ?></td>
+
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'data_nasc', <?= $eq['id'] ?>)">
+                                <?= htmlspecialchars($eq['data_nasc']) ?>
+                            </td>
+
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'tel', <?= $eq['id'] ?>)">
+                                <?= htmlspecialchars($eq['tel']) ?>
+                            </td>
+
+                            
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'cep', <?= $eq['id'] ?>)"><?= htmlspecialchars($eq['cep']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'rua', <?= $eq['id'] ?>)"><?= htmlspecialchars($eq['rua']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'num', <?= $eq['id'] ?>)"><?= htmlspecialchars($eq['num']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'comp', <?= $eq['id'] ?>)"><?= htmlspecialchars($eq['comp']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'bairro', <?= $eq['id'] ?>)"><?= htmlspecialchars($eq['bairro']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'cid', <?= $eq['id'] ?>)"><?= htmlspecialchars($eq['cid']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'uf', <?= $eq['id'] ?>)"><?= htmlspecialchars($eq['uf']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'func', <?= $eq['id'] ?>)"><?= htmlspecialchars($eq['func']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'plano', <?= $eq['id'] ?>)"><?= htmlspecialchars($eq['plano']) ?></td>
+                            <td contenteditable="true" 
+                                onblur="atualizarCampo(this, 'tempo', <?= $eq['id'] ?>)"><?= htmlspecialchars($eq['tempo']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -90,5 +118,28 @@ $result = $sql->get_result(); // Executa a consulta e obtém o resultado
             <p>Nenhum equipamento cadastrado.</p>
         <?php endif; ?>
     </section>
+
+    <script>
+function atualizarCampo(elemento, campo, id) {
+    const novoValor = elemento.innerText;
+
+    fetch('atualizar_inline.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id, campo, valor: novoValor })
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Atualização:', data);
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Erro ao atualizar campo.');
+    });
+}
+</script>
+
 </body>
 </html>
