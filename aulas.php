@@ -24,7 +24,7 @@
     <nav class="sidebar" id="sidebar">
         <ul>
             <li><a href="index.html">Início</a></li>
-            <li><a href="agendamento.html">Agendamento</a></li>
+            <li><a href="agendamento.php">Agendamento</a></li>
             <li><a href="planos.html">Planos</a></li>
             <li><a href="pagamentos.html">Pagamentos</a></li>
             

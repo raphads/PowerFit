@@ -21,7 +21,8 @@ if (!empty($_POST['aulas'])) {
             die("Erro no execute: " . $sql->error);
         }
     }
-    echo "Agendamento realizado com sucesso!";
+    header('location:Lista_alumo_aula.php');
+    //echo "Agendamento realizado com sucesso!";
 } else {
     echo "Nenhuma aula selecionada.";
 }

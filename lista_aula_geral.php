@@ -2,11 +2,18 @@
 include 'conexao.php';
 
 $sql = $conecta_db->prepare("
-    SELECT l.nome AS aluno, a.modalidade, a.instrutor, a.data_aula, a.hora, a.duracao
-    FROM tb_agenda ag
-    JOIN tb_login l ON ag.aluno = l.id
-    JOIN tb_aulas a ON ag.cod_aula = a.cod_aula
-    ORDER BY a.data_aula, a.hora
+    SELECT 
+    l.nome AS aluno,
+    a.modalidade,
+    a.instrutor,
+    a.data_aula,
+    a.hora,
+    a.duracao
+FROM tb_agenda ag
+JOIN tb_login l ON ag.aluno = l.id
+JOIN tb_aulas a ON ag.cod_agenda = a.cod_aula
+ORDER BY a.data_aula, a.hora;
+
 ");
 if (!$sql) {
     die("Erro no prepare: " . $conecta_db->error);
@@ -14,7 +21,39 @@ if (!$sql) {
 $sql->execute();
 $result = $sql->get_result();
 ?>
-<h2>Todos os Agendamentos</h2>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aulas Agendadas - PowerFit</title>
+    <link rel="icon" href="images/logo_semnome.png">
+    <link rel="stylesheet" href="site_academia.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background: #f4f4f4;
+        }
+    </style>
+</head>
+<header style="width :170%">
+        <h1>PowerFit - Aulas Agendadas</h1>
+        <p><a href = "area_adm.php">Voltar</a></p>
+    </header>
+    <section>
+<h2>Aulas Agendadas</h2>
 <table>
     <thead>
         <tr>
@@ -39,3 +78,4 @@ $result = $sql->get_result();
         <?php endwhile; ?>
     </tbody>
 </table>
+        </section>

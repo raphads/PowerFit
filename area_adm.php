@@ -28,6 +28,7 @@
         <a href = "lista_cad.php" class="button-class" style="height: 10px">Lista de Usuários</button><br><br>
         <a href = "lista_equip.php" class="button-class">Lista de Equipamentos</button><br><br>
         <a href = "lista_aula.php" class="button-class">Lista de Aulas</button><br><br>
+        <a href = "lista_aula_geral.php" class="button-class">Lista de Agendamento de Aulas</button><br><br>
         <a href = "relatorios.php" class="button-class">Relatórios</button><br><br>
         <a href = "cadastro.php" class="button-class">Cadastro de Usuários</button><br><br>
         <a href = "equipamentos.php" class="button-class">Cadastro de Equipamentos</button><br><br>

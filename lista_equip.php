@@ -117,6 +117,7 @@ $pass = "";       // ajuste sua senha
 
 <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 $(document).ready(function () {  
     var form = $('.form'),  
@@ -151,6 +152,26 @@ $(document).ready(function () {
     }
 });
 </script>
+<script>
+document.getElementById("create_pdf").addEventListener("click", function () {
+    const tabela = document.getElementById("equipTable");
+
+    html2canvas(tabela).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF("p", "mm", "a4");
+
+        // largura da página em mm
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        // altura proporcional à imagem
+        const imgWidth = pageWidth - 20; // margem
+        const imgHeight = canvas.height * imgWidth / canvas.width;
+
+        pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+        pdf.save("equipamentos.pdf");
+    });
+});
+</script>
 </head>
 <body>
     <header style="width :150%">
@@ -162,7 +183,7 @@ $(document).ready(function () {
         <form>
         <h2>Equipamentos Cadastrados</h2>
         <?php if (count($sql) > 0): ?>
-            <table>
+            <table id="equipTable">
                 <thead>
                     <tr>
                         <th>Código</th>
