@@ -4,78 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerFit</title>
+
     <link rel="icon" href="images/logo_semnome.png">
     <link rel="stylesheet" href="site_academia.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+
     <script src="site_academia.js" defer></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+
     <script>
-        function updateTexto(){
-            var texto1 = document.getElementById("funcao");
-            if((texto1.value == "instrutor") || (texto1.value == "administrador")){
-                document.getElementById("plano").style.visibility = "hidden";
-                document.getElementById("planol").style.visibility = "hidden";
-                document.getElementById("tempo").style.visibility = "hidden";
-                document.getElementById("tempol").style.visibility = "hidden";
-            }else{
-                document.getElementById("plano").style.visibility = "visible";
-                document.getElementById("planol").style.visibility = "visible";
-                document.getElementById("tempo").style.visibility = "visible";
-                document.getElementById("tempol").style.visibility = "visible";
+
+        const API = "http://localhost:8081"
+
+        function updateTexto() {
+
+            const funcao = document.getElementById("funcao").value
+
+            const ocultar = funcao === "instrutor" || funcao === "administrador"
+
+            document.getElementById("plano").style.visibility = ocultar ? "hidden" : "visible"
+            document.getElementById("planol").style.visibility = ocultar ? "hidden" : "visible"
+
+            document.getElementById("tempo").style.visibility = ocultar ? "hidden" : "visible"
+            document.getElementById("tempol").style.visibility = ocultar ? "hidden" : "visible"
+        }
+
+        function Biom() {
+            window.open('biometria.html')
+        }
+
+        function Facial() {
+            window.open('facial.html')
+        }
+
+        async function cadastrar(event) {
+
+            event.preventDefault()
+
+            try {
+
+                const dados = {
+                    cpf: document.getElementById("cpf").value,
+                    nome: document.getElementById("nome").value,
+                    email: document.getElementById("email").value,
+                    senha: document.getElementById("senha").value,
+                    dataNascimento: document.getElementById("data_nasc").value,
+                    telefone: document.getElementById("telefone").value,
+                    cep: document.getElementById("cep").value,
+                    rua: document.getElementById("rua").value,
+                    numero: document.getElementById("numero").value,
+                    complemento: document.getElementById("compl").value,
+                    bairro: document.getElementById("bairro").value,
+                    cidade: document.getElementById("cidade").value,
+                    estado: document.getElementById("estado").value,
+                    funcao: document.getElementById("funcao").value,
+                    plano: document.getElementById("plano").value,
+                    tempoPlano: document.getElementById("tempo").value
+                }
+
+                const response = await fetch(API + "/cadastros/novo", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(dados)
+                })
+
+                if (!response.ok) {
+                    throw new Error("Erro ao cadastrar usuário")
+                }
+
+                alert("Usuário cadastrado com sucesso!")
+
+                document.getElementById("userForm").reset()
+
+                window.location.href = "pagamentos.html"
+
+            } catch (erro) {
+
+                console.error(erro)
+
+                alert("Erro ao cadastrar usuário")
             }
         }
-        function Redirecionar(){
-            //alert("Usuário Cadastrado com Sucesso!");
-            /*
-            if (plano.value == "PowerSilver"){
-                valor = 99.99;
-                if(tempo.value == "Mensal"){
-                    valorTotal = valor;
-                }else if (tempo.value == "Trimestral"){
-                    valorTotal = valor * 2;
-                }else{
-                    valorTotal = valor * 4;
-                }
-            }else if(plano.value == "PowerGold"){
-                valor = 159.99;
-                if(tempo.value == "Mensal"){
-                    valorTotal = valor;
-                }else if (tempo.value == "Trimestral"){
-                    valorTotal = valor * 2;
-                }else{
-                    valorTotal = valor * 4;
-                }
-            }else{
-                valor = 259.99;
-                if(tempo.value == "Mensal"){
-                    valorTotal = valor;
-                }else if (tempo.value == "Trimestral"){
-                    valorTotal = valor * 2;
-                }else{
-                    valorTotal = valor * 4;
-                }
-            }*/
-            window.location('pagamentos.html');
-        }
-        function Biom(){
-            window.open('biometria.html');
-        }
-        function Facial(){
-            window.open('facial.html');
-        }
 
-        
+        $(document).ready(function () {
+
+            $('#cpf').inputmask('999.999.999-99')
+            $('#telefone').inputmask('(99) 99999-9999')
+            $('#cep').inputmask('99999-999')
+
+        })
 
     </script>
+
 </head>
+
 <body>
+
     <header>
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-        <img src="images/logo_semnome.png" height="10%" width="10%" style="position: static; right: auto;">
+
+        <img src="images/logo_semnome.png" height="10%" width="10%">
+
         <h1>PowerFit</h1>
     </header>
+
     <hr>
+
     <nav class="sidebar" id="sidebar">
         <ul>
             <li><a href="index.html">Início</a></li>
@@ -88,69 +127,95 @@
             <li><a href="relatorios.html">Relatórios</a></li>
         </ul>
     </nav>
-    <section class="content" name="content">
+
+    <section class="content">
+
         <h2>Cadastro de Membros</h2>
-        <form id="userForm" action="pagamentos.html">
+
+        <form id="userForm" onsubmit="cadastrar(event)">
+
             <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" required placeholder="999.999.999-99">
+            <input type="text" id="cpf" required>
+
             <label for="nome">Nome:</label>
             <input type="text" id="nome" required>
+
             <label for="email">Email:</label>
             <input type="email" id="email" required>
+
             <label for="senha">Senha:</label>
             <input type="password" id="senha" required>
+
             <label for="data_nasc">Data de Nascimento:</label>
             <input type="date" id="data_nasc" required>
+
             <label for="telefone">Telefone:</label>
-            <input type="text" id="telefone" required placeholder="(99) 99999-9999">
+            <input type="text" id="telefone" required>
+
             <label for="cep">CEP:</label>
-            <input type="text" id="cep" required placeholder="99999-999">
+            <input type="text" id="cep" required>
+
             <label for="rua">Rua:</label>
             <input type="text" id="rua" required>
+
             <label for="numero">Número:</label>
             <input type="text" id="numero" required>
+
             <label for="compl">Complemento:</label>
             <input type="text" id="compl">
+
             <label for="bairro">Bairro:</label>
             <input type="text" id="bairro" required>
+
             <label for="cidade">Cidade:</label>
             <input type="text" id="cidade" required>
+
             <label for="estado">Estado:</label>
             <input type="text" id="estado" required>
-            
-            
+
             <label for="funcao">Função:</label>
+
             <select id="funcao" onchange="updateTexto()">
                 <option value="cliente">Aluno</option>
                 <option value="instrutor">Instrutor</option>
                 <option value="administrador">Administrador</option>
-                </select>
+            </select>
+
             <label for="plano" id="planol">Plano:</label>
-            <select id="plano" name="plano">
+
+            <select id="plano">
                 <option value="powersilver">PowerSilver</option>
                 <option value="powergold">PowerGold</option>
                 <option value="powerdiamond">PowerDiamond</option>
             </select>
 
             <label for="tempo" id="tempol">Tempo:</label>
-            <select id="tempo" name="plano">
+
+            <select id="tempo">
                 <option value="mensal">Mensal</option>
                 <option value="trimestral">Trimestral</option>
                 <option value="anual">Anual</option>
             </select>
 
-            <button  onclick="Biom()" style="width: 50%;">Biometria</button>
-            <button  onclick="Facial()"style="width: 50%;">Reconhecimento Facial</button>
-            
-            <button type="submit" onclick="Redirecionar()">Cadastrar</button>
+            <button type="button" onclick="Biom()" style="width: 50%;">
+                Biometria
+            </button>
+
+            <button type="button" onclick="Facial()" style="width: 50%;">
+                Reconhecimento Facial
+            </button>
+
+            <button type="submit">
+                Cadastrar
+            </button>
+
         </form>
+
     </section>
 
-    
     <footer>
-        <p>  <a href="https://facebook.com/"><img class="facebook" src="images/facebook.png" alt="" height="20px" width="20px"></a>&nbsp;  &nbsp;  <a href="https://instagram.com/"> <img class="facebook" src="images/instagram - Copia.png" alt="" height="20px" width="20px"></a>  &nbsp;  &nbsp;    <a href="https://twitter.com/"><img class="facebook" src="images/twitter.png" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://tiktok.com/"><img class="facebook" src="images/tik-tok.png" alt="" height="20px" width="20px"></a> &nbsp;  &nbsp;  <a href="https://youtube.com/"><img class="facebook" src="images/youtube.png" alt="" height="20px" width="20px"></a> </p>
         <p>Telefone: (99) 99999-9999</p>
     </footer>
+
 </body>
 </html>
- 

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Agendamentos - PowerFit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="site_academia.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Agendamentos de Aulas</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Modalidade</th>
+          <th>Instrutor</th>
+          <th>Alunos</th>
+          <th>Data</th>
+          <th>Hora</th>
+          <th>Duração</th>
+        </tr>
+      </thead>
+      <tbody id="agendamentos"></tbody>
+    </table>
+  </div>
+
+  <script>
+    async function carregarAgendamentos() {
+      try {
+        const response = await fetch("http://localhost:8081/agendamentos/todos");
+        if (!response.ok) throw new Error("Erro ao carregar agendamentos");
+        const dados = await response.json();
+
+        const tabela = document.getElementById("agendamentos");
+        tabela.innerHTML = "";
+
+        dados.forEach(aula => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${aula.cod_aula}</td>
+            <td>${aula.modalidade}</td>
+            <td>${aula.instrutor}</td>
+            <td>${aula.qtde_alunos}</td>
+            <td>${aula.data_aula}</td>
+            <td>${aula.hora}</td>
+            <td>${aula.duracao}</td>
+          `;
+          tabela.appendChild(row);
+        });
+      } catch (erro) {
+        console.error(erro);
+        alert("Não foi possível carregar os agendamentos.");
+      }
+    }
+
+    carregarAgendamentos();
+  </script>
+</body>
+</html>

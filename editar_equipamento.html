@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Equipamento - PowerFit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+    h1 { text-align: center; color: #333; }
+    form { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; }
+    label { display: block; margin-top: 10px; }
+    input, select { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px; background-color: #333; color: #fff; border: none; cursor: pointer; }
+    button:hover { background-color: #555; }
+  </style>
+</head>
+<body>
+  <h1>Editar Equipamento</h1>
+  <form id="editEquipForm">
+    <label>Tipo:</label>
+    <input type="text" id="tipo" required>
+    <label>Marca:</label>
+    <input type="text" id="marca" required>
+    <label>Data de Compra:</label>
+    <input type="date" id="data_compra" required>
+    <label>Data de Manutenção:</label>
+    <input type="date" id="data_manut" required>
+    <label>Status:</label>
+    <select id="modalidade">
+      <option value="Disponível">Disponível</option>
+      <option value="Em Manutenção">Em Manutenção</option>
+      <option value="Substituído">Substituído</option>
+    </select>
+    <button type="submit">Salvar Alterações</button>
+  </form>
+
+  <script>
+    const API = "http://localhost:8081";
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    async function carregarEquipamento() {
+      try {
+        const response = await fetch(`${API}/equipamentos/${id}`);
+        if (!response.ok) {
+          alert("Equipamento não encontrado.");
+          return;
+        }
+        const eq = await response.json();
+
+        document.getElementById("tipo").value = eq.tipo || "";
+        document.getElementById("marca").value = eq.marca || "";
+        document.getElementById("data_compra").value = eq.data_compra || "";
+        document.getElementById("data_manut").value = eq.data_manut || "";
+        document.getElementById("modalidade").value = eq.modalidade || "Disponível";
+      } catch (erro) {
+        console.error(erro);
+        alert("Erro ao carregar equipamento.");
+      }
+    }
+
+    document.getElementById("editEquipForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const dados = {
+        tipo: document.getElementById("tipo").value,
+        marca: document.getElementById("marca").value,
+        data_compra: document.getElementById("data_compra").value,
+        data_manut: document.getElementById("data_manut").value,
+        modalidade: document.getElementById("modalidade").value
+      };
+
+      try {
+        const response = await fetch(`${API}/equipamentos/atualizar/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(dados)
+        });
+        if (response.ok) {
+          alert("Equipamento atualizado com sucesso!");
+          window.location.href = "equipamentos.html";
+        } else {
+          alert("Erro ao atualizar equipamento.");
+        }
+      } catch (erro) {
+        console.error(erro);
+        alert("Erro ao atualizar equipamento.");
+      }
+    });
+
+    carregarEquipamento();
+  </script>
+</body>
+</html>

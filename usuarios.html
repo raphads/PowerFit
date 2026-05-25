@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Usuários - PowerFit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+    h1 { text-align: center; color: #333; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: #fff; }
+    th, td { padding: 8px; text-align: center; border: 1px solid #ccc; }
+    th { background-color: #333; color: #fff; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    .container { max-width: 1400px; margin: auto; }
+    button { padding: 5px 10px; margin: 2px; border: none; cursor: pointer; }
+    .edit { background-color: #4CAF50; color: white; }
+    .delete { background-color: #f44336; color: white; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lista Completa de Usuários</h1>
+    <button onclick="carregarUsuarios()">Atualizar Lista</button>
+    <table>
+      <thead>
+        <tr>
+          <th>CPF</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Senha</th>
+          <th>Data Nasc.</th>
+          <th>Telefone</th>
+          <th>CEP</th>
+          <th>Rua</th>
+          <th>Número</th>
+          <th>Complemento</th>
+          <th>Bairro</th>
+          <th>Cidade</th>
+          <th>Estado</th>
+          <th>Função</th>
+          <th>Plano</th>
+          <th>Tempo</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="usuarios"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const API = "http://localhost:8081";
+
+    async function carregarUsuarios() {
+      try {
+        const response = await fetch(API + "/cadastros/todos");
+        if (!response.ok) throw new Error("Erro ao carregar usuários");
+        const dados = await response.json();
+
+        const tabela = document.getElementById("usuarios");
+        tabela.innerHTML = "";
+
+        dados.forEach(user => {
+            console.log("Usuário carregado:", user);
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${user.cpf || "-"}</td>
+            <td>${user.nome || "-"}</td>
+            <td>${user.email || "-"}</td>
+            <td>${user.senha || "-"}</td>
+            <td>${user.dataNasc || "-"}</td>
+            <td>${user.telefone || "-"}</td>
+            <td>${user.cep || "-"}</td>
+            <td>${user.rua || "-"}</td>
+            <td>${user.numero || "-"}</td>
+            <td>${user.compl || "-"}</td>
+            <td>${user.bairro || "-"}</td>
+            <td>${user.cidade || "-"}</td>
+            <td>${user.estado || "-"}</td>
+            <td>${user.funcao || "-"}</td>
+            <td>${user.plano || "-"}</td>
+            <td>${user.tempo || "-"}</td>
+            <td>
+              <button class="edit" onclick="editarUsuario('${user.cpf || ""}')">Editar</button>
+              <button class="delete" onclick="removerUsuario('${user.cpf}')">Remover</button>
+            </td>
+          `;
+          tabela.appendChild(row);
+        });
+      } catch (erro) {
+        console.error(erro);
+        alert("Não foi possível carregar os usuários.");
+      }
+    }
+
+    async function removerUsuario(cpf) {
+      if (!confirm("Deseja realmente remover este usuário?")) return;
+      try {
+        const response = await fetch(API + `/cadastros/${cpf}/remover`, { method: "DELETE" });
+        if (response.ok) {
+          alert("Usuário removido com sucesso!");
+          carregarUsuarios();
+        } else {
+          alert("Erro ao remover usuário.");
+        }
+      } catch (erro) {
+        console.error(erro);
+        alert("Erro ao remover usuário.");
+      }
+    }
+
+    function editarUsuario(cpf) {
+  if (!cpf) {
+    alert("CPF não disponível para este usuário.");
+    return;
+  }
+   // Se você está servindo como /editar (sem .html)
+  window.location.href = `/editar?cpf=${cpf}`;
+}
+
+    carregarUsuarios();
+  </script>
+</body>
+</html>

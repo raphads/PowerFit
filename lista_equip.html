@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Equipamentos - PowerFit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+    h1 { text-align: center; color: #333; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: #fff; }
+    th, td { padding: 8px; text-align: center; border: 1px solid #ccc; }
+    th { background-color: #333; color: #fff; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    .container { max-width: 1200px; margin: auto; }
+    button { padding: 5px 10px; margin: 2px; border: none; cursor: pointer; }
+    .edit { background-color: #4CAF50; color: white; }
+    .delete { background-color: #f44336; color: white; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lista de Equipamentos</h1>
+    <button onclick="carregarEquipamentos()">Atualizar Lista</button>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>Marca</th>
+          <th>Data Compra</th>
+          <th>Data Manutenção</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="equipamentos"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const API = "http://localhost:8081";
+
+    async function carregarEquipamentos() {
+      try {
+        const response = await fetch(API + "/equipamentos/todos");
+        if (!response.ok) throw new Error("Erro ao carregar equipamentos");
+        const dados = await response.json();
+
+        const tabela = document.getElementById("equipamentos");
+        tabela.innerHTML = "";
+
+        dados.forEach(eq => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${eq.id || "-"}</td>
+            <td>${eq.tipo || "-"}</td>
+            <td>${eq.marca || "-"}</td>
+            <td>${eq.data_compra || "-"}</td>
+            <td>${eq.data_manut || "-"}</td>
+            <td>${eq.modalidade || "-"}</td>
+            <td>
+              <button class="edit" onclick="editarEquipamento('${eq.id}')">Editar</button>
+              <button class="delete" onclick="removerEquipamento('${eq.id}')">Remover</button>
+            </td>
+          `;
+          tabela.appendChild(row);
+        });
+      } catch (erro) {
+        console.error(erro);
+        alert("Não foi possível carregar os equipamentos.");
+      }
+    }
+
+    async function removerEquipamento(id) {
+      if (!confirm("Deseja realmente remover este equipamento?")) return;
+      try {
+        const response = await fetch(API + `/equipamentos/${id}/remover`, { method: "DELETE" });
+        if (response.ok) {
+          alert("Equipamento removido com sucesso!");
+          carregarEquipamentos();
+        } else {
+          alert("Erro ao remover equipamento.");
+        }
+      } catch (erro) {
+        console.error(erro);
+        alert("Erro ao remover equipamento.");
+      }
+    }
+
+function editarEquipamento(id) {
+  window.location.href = `/editar_equipamento?id=${id}`;
+}
+
+    carregarEquipamentos();
+  </script>
+</body>
+</html>
